@@ -1,0 +1,4 @@
+*~
+*.o
+tpmkey
+tpmkey-pkcs11.so
