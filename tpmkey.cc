@@ -1,31 +1,48 @@
-// -*- mode: c++; c-file-style: "bsd" -*-
-// Copyright (c) 2011 Andrew Lutomirski
-//
-// This file will be open-sourced once I decide on a license (which could
-// be messy due to diverse licenses of related infrastructure).  In the mean
-// time, you may:
-//  - Compile and use this code
-//  - Distribute this source code
-//  - Create derivative works of this source code in source code formats
-//    and distribute them under the terms of this same license.  (That is,
-//    you may not distribute binaries.)
-//
-// This is intentionally not a real open source license because I don't want
-// copies under some strange license proliferating.  I'll do something
-// intelligent about it later.  The current situation is something like:
-//  - trousers is CPL.
-//  - opencryptoki (which I might want to interoperate with someday) is CPL
-//  - libgcrypt is LPGL.
-//  - openssl (which I probably won't use) has a messy license.
-//  - The TSPI interface itself is just a specification.  This code
-//    as it stands right now is developed using the spec as a reference, not
-//    the trousers implementation of the spec (except for testing).
-//  - PKCS #11 is a spec.  Its associated header file is available under a
-//    a license that I don't understand.
-//  - GnuPG has political and/or ideological issues with PKCS #11.  I do *not*
-//    want tpmkey to get mired in the same issues.  Interoperating with GnuPG
-//    will probably always be a giant PITA, but I don't interoperating with
-//    normal PKCS #11 clients to be a similar mess.
+/* -*- mode: c++; c-file-style: "bsd" -*-
+
+TPMKey conversion commands
+
+Copyright (c) 2011 Andrew Lutomirski.  All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
+
+ 1. Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY ANDREW LUTOMIRSKI ``AS IS'' AND ANY EXPRESS
+OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL ANDREW LUTOMIRSKI OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
+THE POSSIBILITY OF SUCH DAMAGE.
+
+Some licensing-related things to be aware of:
+
+ - trousers is CPL.
+ - opencryptoki (which I might want to interoperate with someday) is CPL
+ - libgcrypt is LPGL.
+ - openssl (which I probably won't use) has a messy license.
+ - The TSPI interface itself is just a specification.  This code
+   as it stands right now is developed using the spec as a reference, not
+   the trousers implementation of the spec (except for testing).
+ - PKCS #11 is a spec.  Its associated header file is available under a
+   a license that I don't understand.
+ - GnuPG has political and/or ideological issues with PKCS #11.  I do *not*
+   want tpmkey to get mired in the same issues.  Interoperating with GnuPG
+   will probably always be a giant PITA, but I don't interoperating with
+   normal PKCS #11 clients to be a similar mess.
+
+*/
 
 #include "tspi_helpers.h"
 #include <stdio.h>
