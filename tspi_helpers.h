@@ -33,6 +33,7 @@ THE POSSIBILITY OF SUCH DAMAGE.
 #include <tr1/memory>
 #include <stdexcept>
 #include <malloc.h>
+#include <unistd.h>
 #include <sstream>
 
 class TPMError : public std::runtime_error
