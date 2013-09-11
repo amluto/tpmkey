@@ -10,7 +10,7 @@ tpmkey: $(OBJS) main.o
 
 pkcs11: tpmkey-pkcs11.so
 tpmkey-pkcs11.so: $(OBJS) p11_function_list.o p11_cxx.o
-	g++ -shared -Wl,--no-undefined -ltspi -lgnutls -lgcrypt -o $@ $^
+	g++ -shared -Wl,--no-undefined -o $@ $^ -ltspi -lgnutls -lgcrypt
 
 %.o: %.cc *.h
 	g++ -g -Wall -Werror=return-type -fvisibility=hidden -fvisibility-inlines-hidden -fPIC -c $<
